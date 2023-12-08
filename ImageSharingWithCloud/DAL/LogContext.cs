@@ -20,11 +20,12 @@ namespace ImageSharingWithCloud.DAL
         {
             this.logger = logger;
 
-            Uri logTableServiceUri = null;
-            string logTableName = null;
             /*
-             * TODO Get the table service URI and table name.
+             * TODO Get the table service URI and table name. -- DONE
              */
+            Uri logTableServiceUri = new Uri(configuration[StorageConfig.LogEntryDbUri]);
+            string logTableName = configuration[StorageConfig.LogEntryDbTable];
+            
             logger.LogInformation("Looking up Storage URI... ");
 
 
@@ -37,8 +38,8 @@ namespace ImageSharingWithCloud.DAL
                 configuration[StorageConfig.LogEntryDbAccessKey]);
 
             logger.LogInformation("Initializing table client....");
-            // TODO Set the table client for interacting with the table service (see TableClient constructors)
-
+            // TODO Set the table client for interacting with the table service (see TableClient constructors) -- DONE
+            TableClient tableClient = new TableClient(logTableServiceUri, logTableName, credential);
             logger.LogInformation("....table client URI = " + tableClient.Uri);
         }
 
@@ -55,8 +56,8 @@ namespace ImageSharingWithCloud.DAL
 
             logger.LogDebug("Adding log entry for image: {0}", image.Id);
 
-            Response response = null;
-            // TODO add a log entry for this image view
+            // TODO add a log entry for this image view -- DONE
+            Response response = await tableClient.AddEntityAsync(entry);
 
             if (response.IsError)
             {
@@ -73,8 +74,9 @@ namespace ImageSharingWithCloud.DAL
         {
             if (todayOnly)
             {
-                // TODO just return logs for today
-                return null;
+                // TODO just return logs for today -- DONE
+                var today = DateTime.UtcNow.ToString("yyyyMMdd");
+                return tableClient.QueryAsync<LogEntry>(entry => entry.PartitionKey == today);
             }
             else
             {

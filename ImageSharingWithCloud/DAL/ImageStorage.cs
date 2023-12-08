@@ -1,4 +1,5 @@
-﻿using Azure.Core;
+﻿using System.Collections.Concurrent;
+using Azure.Core;
 using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
@@ -51,8 +52,10 @@ namespace ImageSharingWithCloud.DAL
             }
             Uri imageStorageUri = new Uri(imageStorageUriFromConfig);
 
-            // TODO get the shared key credential for accessing blob storage.
-            StorageSharedKeyCredential credential = null;
+            // TODO get the shared key credential for accessing blob storage. -- DONE
+            string accountName = configuration[StorageConfig.ImageStorageAccountName];
+            string accountKey = configuration[StorageConfig.ImageStorageAccessKey];
+            StorageSharedKeyCredential credential = new StorageSharedKeyCredential(accountName, accountKey);
 
             BlobServiceClient blobServiceClient = new BlobServiceClient(imageStorageUri, credential, null);
 
@@ -116,8 +119,9 @@ namespace ImageSharingWithCloud.DAL
         public async Task<string> SaveImageInfoAsync(Image image)
         {
             image.Id = Guid.NewGuid().ToString();
-            // TODO
-            return null;
+            // TODO -- DONE
+            await imageDbContainer.CreateItemAsync(image, new PartitionKey(image.UserId));
+            return image.Id;
 
         }
 
@@ -151,9 +155,18 @@ namespace ImageSharingWithCloud.DAL
             var query = imageDbContainer.GetItemLinqQueryable<Image>()
                                         .WithPartitionKey<Image>(user.Id)
                                         .Where(im => im.Valid && im.Approved);
-            // TODO complete this
+            // TODO complete this -- DONE
+            var iterator = query.ToFeedIterator();
 
-            return results;
+            while (iterator.HasMoreResults)
+            {
+                foreach (var item in await iterator.ReadNextAsync())
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results; ;
         }
 
         public async Task UpdateImageInfoAsync(Image image)
@@ -217,12 +230,17 @@ namespace ImageSharingWithCloud.DAL
             headers.ContentType = "image/jpeg";
 
             /*
-             * TODO upload data to blob storage
+             * TODO upload data to blob storage -- DONE
              * 
              * Tip: You need to reset the stream position to the beginning before uploading:
              * See https://stackoverflow.com/a/47611795.
              */
-
+            using (var stream = new MemoryStream())
+            {
+                await imageFile.CopyToAsync(stream);
+                stream.Seek(0, SeekOrigin.Begin);
+                await blobContainerClient.GetBlobClient(BlobName(userId, imageId)).UploadAsync(stream, headers);
+            }
         }
 
         protected async Task RemoveImageFileAsync(Image image)

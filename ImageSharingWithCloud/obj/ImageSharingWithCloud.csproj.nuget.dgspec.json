@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/ImageSharingWithCloud.csproj": {}
+    "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/ImageSharingWithCloud.csproj": {}
   },
   "projects": {
-    "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/ImageSharingWithCloud.csproj": {
+    "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/ImageSharingWithCloud.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
+        "projectUniqueName": "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
         "projectName": "ImageSharingWithCloud",
-        "projectPath": "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
-        "packagesPath": "/Users/dduggan/.nuget/packages/",
-        "outputPath": "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/obj/",
+        "projectPath": "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
+        "packagesPath": "/Users/adamboro/.nuget/packages/",
+        "outputPath": "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dduggan/.nuget/NuGet/NuGet.Config"
+          "/Users/adamboro/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.311/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +41,7 @@
           "dependencies": {
             "Azure.Data.Tables": {
               "target": "Package",
-              "version": "[12.8.1, )"
+              "version": "[12.8.2, )"
             },
             "Azure.Extensions.AspNetCore.Configuration.Secrets": {
               "target": "Package",
@@ -52,7 +53,7 @@
             },
             "Azure.Storage.Blobs": {
               "target": "Package",
-              "version": "[12.18.0, )"
+              "version": "[12.19.1, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -64,7 +65,7 @@
             },
             "Microsoft.Azure.Cosmos": {
               "target": "Package",
-              "version": "[3.36.0, )"
+              "version": "[3.37.0, )"
             },
             "Microsoft.EntityFrameworkCore.Cosmos": {
               "target": "Package",
@@ -108,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
         }
       }
     }

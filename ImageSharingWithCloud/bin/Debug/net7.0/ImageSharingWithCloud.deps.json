@@ -8,24 +8,24 @@
     ".NETCoreApp,Version=v7.0": {
       "ImageSharingWithCloud/1.0.0": {
         "dependencies": {
-          "Azure.Data.Tables": "12.8.1",
+          "Azure.Data.Tables": "12.8.2",
           "Azure.Extensions.AspNetCore.Configuration.Secrets": "1.2.2",
           "Azure.Identity": "1.10.3",
-          "Azure.Storage.Blobs": "12.18.0",
+          "Azure.Storage.Blobs": "12.19.1",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "7.0.13",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.13",
-          "Microsoft.Azure.Cosmos": "3.36.0",
+          "Microsoft.Azure.Cosmos": "3.37.0",
           "Microsoft.EntityFrameworkCore.Cosmos": "7.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.13",
-          "Microsoft.Extensions.Azure": "1.7.0",
+          "Microsoft.Extensions.Azure": "1.7.1",
           "Microsoft.Extensions.Logging.AzureAppServices": "7.0.13"
         },
         "runtime": {
           "ImageSharingWithCloud.dll": {}
         }
       },
-      "Azure.Core/1.35.0": {
+      "Azure.Core/1.36.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "System.Diagnostics.DiagnosticSource": "6.0.1",
@@ -37,26 +37,26 @@
         },
         "runtime": {
           "lib/net6.0/Azure.Core.dll": {
-            "assemblyVersion": "1.35.0.0",
-            "fileVersion": "1.3500.23.45706"
+            "assemblyVersion": "1.36.0.0",
+            "fileVersion": "1.3600.23.56006"
           }
         }
       },
-      "Azure.Data.Tables/12.8.1": {
+      "Azure.Data.Tables/12.8.2": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "System.Text.Json": "7.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Data.Tables.dll": {
-            "assemblyVersion": "12.8.1.0",
-            "fileVersion": "12.800.123.41503"
+            "assemblyVersion": "12.8.2.0",
+            "fileVersion": "12.800.223.56303"
           }
         }
       },
       "Azure.Extensions.AspNetCore.Configuration.Secrets/1.2.2": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "Azure.Security.KeyVault.Secrets": "4.2.0",
           "Microsoft.Extensions.Configuration": "7.0.0"
         },
@@ -69,7 +69,7 @@
       },
       "Azure.Identity/1.10.3": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "Microsoft.Identity.Client": "4.56.0",
           "Microsoft.Identity.Client.Extensions.Msal": "4.56.0",
           "System.Memory": "4.5.4",
@@ -86,7 +86,7 @@
       },
       "Azure.Security.KeyVault.Secrets/4.2.0": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "System.Memory": "4.5.4",
           "System.Text.Json": "7.0.0",
           "System.Threading.Tasks.Extensions": "4.5.4"
@@ -98,27 +98,27 @@
           }
         }
       },
-      "Azure.Storage.Blobs/12.18.0": {
+      "Azure.Storage.Blobs/12.19.1": {
         "dependencies": {
-          "Azure.Storage.Common": "12.17.0",
+          "Azure.Storage.Common": "12.18.1",
           "System.Text.Json": "7.0.0"
         },
         "runtime": {
           "lib/net6.0/Azure.Storage.Blobs.dll": {
-            "assemblyVersion": "12.18.0.0",
-            "fileVersion": "12.1800.23.46203"
+            "assemblyVersion": "12.19.1.0",
+            "fileVersion": "12.1900.123.56305"
           }
         }
       },
-      "Azure.Storage.Common/12.17.0": {
+      "Azure.Storage.Common/12.18.1": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "System.IO.Hashing": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Azure.Storage.Common.dll": {
-            "assemblyVersion": "12.17.0.0",
-            "fileVersion": "12.1700.23.46203"
+            "assemblyVersion": "12.18.1.0",
+            "fileVersion": "12.1800.123.56305"
           }
         }
       },
@@ -172,9 +172,9 @@
           }
         }
       },
-      "Microsoft.Azure.Cosmos/3.36.0": {
+      "Microsoft.Azure.Cosmos/3.37.0": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "Microsoft.Bcl.HashCode": "1.1.0",
           "Newtonsoft.Json": "10.0.2",
@@ -189,8 +189,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Azure.Cosmos.Client.dll": {
-            "assemblyVersion": "3.36.0.0",
-            "fileVersion": "3.36.0.0"
+            "assemblyVersion": "3.37.0.0",
+            "fileVersion": "3.37.0.0"
           },
           "lib/netstandard2.0/Microsoft.Azure.Cosmos.Core.dll": {
             "assemblyVersion": "2.11.0.0",
@@ -337,7 +337,7 @@
       "Microsoft.EntityFrameworkCore.Analyzers/7.0.13": {},
       "Microsoft.EntityFrameworkCore.Cosmos/7.0.13": {
         "dependencies": {
-          "Microsoft.Azure.Cosmos": "3.36.0",
+          "Microsoft.Azure.Cosmos": "3.37.0",
           "Microsoft.EntityFrameworkCore": "7.0.13"
         },
         "runtime": {
@@ -390,9 +390,9 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.13"
         }
       },
-      "Microsoft.Extensions.Azure/1.7.0": {
+      "Microsoft.Extensions.Azure/1.7.1": {
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "Azure.Identity": "1.10.3",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Microsoft.Extensions.Configuration.Binder": "7.0.0",
@@ -402,8 +402,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Azure.dll": {
-            "assemblyVersion": "1.7.0.0",
-            "fileVersion": "1.700.23.40801"
+            "assemblyVersion": "1.7.1.0",
+            "fileVersion": "1.700.123.52701"
           }
         }
       },
@@ -1623,19 +1623,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Azure.Core/1.35.0": {
+    "Azure.Core/1.36.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hENcx03Jyuqv05F4RBEPbxz29UrM3Nbhnr6Wl6NQpoU9BCIbL3XLentrxDCTrH54NLS11Exxi/o8MYgT/cnKFA==",
-      "path": "azure.core/1.35.0",
-      "hashPath": "azure.core.1.35.0.nupkg.sha512"
+      "sha512": "sha512-vwqFZdHS4dzPlI7FFRkPx9ctA+aGGeRev3gnzG8lntWvKMmBhAmulABi1O9CEvS3/jzYt7yA+0pqVdxkpAd7dQ==",
+      "path": "azure.core/1.36.0",
+      "hashPath": "azure.core.1.36.0.nupkg.sha512"
     },
-    "Azure.Data.Tables/12.8.1": {
+    "Azure.Data.Tables/12.8.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UsJVAV2omsi6Ws5zqV2/TMP2GQjFlmjiFXnYKV5u5+9MQ588VDkvvlh4TGzLRAG2DxVx7rdgjtQ9baTlz/+log==",
-      "path": "azure.data.tables/12.8.1",
-      "hashPath": "azure.data.tables.12.8.1.nupkg.sha512"
+      "sha512": "sha512-Pb1HbhNvhYOWmsSHxRXElhkD5A2Gk7ifPjnUjN+U3lvGy2x4kSfjg1+KMax/16xBh49Cmlok3mS5qS39otkQlg==",
+      "path": "azure.data.tables/12.8.2",
+      "hashPath": "azure.data.tables.12.8.2.nupkg.sha512"
     },
     "Azure.Extensions.AspNetCore.Configuration.Secrets/1.2.2": {
       "type": "package",
@@ -1658,19 +1658,19 @@
       "path": "azure.security.keyvault.secrets/4.2.0",
       "hashPath": "azure.security.keyvault.secrets.4.2.0.nupkg.sha512"
     },
-    "Azure.Storage.Blobs/12.18.0": {
+    "Azure.Storage.Blobs/12.19.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IUqHRXnabXCzmmvkzqPK4FuGzLxmKSugDEt5Hm5B/JlJFR+aHDsPW4nCLbG0txThqBSKPqcBBU/oA6c5TaFJgA==",
-      "path": "azure.storage.blobs/12.18.0",
-      "hashPath": "azure.storage.blobs.12.18.0.nupkg.sha512"
+      "sha512": "sha512-x43hWFJ4sPQ23TD4piCwT+KlQpZT8pNDAzqj6yUCqh+WJ2qcQa17e1gh6ZOeT2QNFQTTDSuR56fm2bIV7i11/w==",
+      "path": "azure.storage.blobs/12.19.1",
+      "hashPath": "azure.storage.blobs.12.19.1.nupkg.sha512"
     },
-    "Azure.Storage.Common/12.17.0": {
+    "Azure.Storage.Common/12.18.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/h8SpUkxMuQy/MbNFeJQGmhYt3JnYfEiGeDojtNgLNzzhyDnRYgjF3ZKYgjORYQpn0Spr+4+v2MZy+0GNJBLrg==",
-      "path": "azure.storage.common/12.17.0",
-      "hashPath": "azure.storage.common.12.17.0.nupkg.sha512"
+      "sha512": "sha512-ohCslqP9yDKIn+DVjBEOBuieB1QwsUCz+BwHYNaJ3lcIsTSiI4Evnq81HcKe8CqM8qvdModbipVQKpnxpbdWqA==",
+      "path": "azure.storage.common/12.18.1",
+      "hashPath": "azure.storage.common.12.18.1.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -1707,12 +1707,12 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/7.0.13",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.7.0.13.nupkg.sha512"
     },
-    "Microsoft.Azure.Cosmos/3.36.0": {
+    "Microsoft.Azure.Cosmos/3.37.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-O8NYZ3JEVVp9xjj1VZ1gQzeJowspyt3n1wJKjt7fZRwVNDyeiBwe1F9oIBwdrsvigBfxLT3wvBZU1oU5vVlXPw==",
-      "path": "microsoft.azure.cosmos/3.36.0",
-      "hashPath": "microsoft.azure.cosmos.3.36.0.nupkg.sha512"
+      "sha512": "sha512-NTNIGWBMVc/gwS2utRvSQ2pULeNC+BomgYh4sb5lQAVH/kkWUDcRgHwd3/YQE9xuo5U6jkEe1VHFME0szC1z3g==",
+      "path": "microsoft.azure.cosmos/3.37.0",
+      "hashPath": "microsoft.azure.cosmos.3.37.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -1805,12 +1805,12 @@
       "path": "microsoft.entityframeworkcore.tools/7.0.13",
       "hashPath": "microsoft.entityframeworkcore.tools.7.0.13.nupkg.sha512"
     },
-    "Microsoft.Extensions.Azure/1.7.0": {
+    "Microsoft.Extensions.Azure/1.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lusJX7qm2eK4cDMQzgDt6M2qGqSvZKzirATCJvgYHrARFH/L5H9cJ4/i8v83OI8USKt3IOkyTFtuuExAGh6pUQ==",
-      "path": "microsoft.extensions.azure/1.7.0",
-      "hashPath": "microsoft.extensions.azure.1.7.0.nupkg.sha512"
+      "sha512": "sha512-mS4uBCrUz6eWLZUgkSQKNM97rRMOTFMhi3rdehNJmmnaCQd0mbsrWYkOG9ZVF93zFuvpHlqRUuTGCsHNvMCVPQ==",
+      "path": "microsoft.extensions.azure/1.7.1",
+      "hashPath": "microsoft.extensions.azure.1.7.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
       "type": "package",

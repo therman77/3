@@ -68,14 +68,28 @@ string dbUser = builder.Configuration[StorageConfig.ApplicationDbUser];
 string dbPassword = builder.Configuration[StorageConfig.ApplicationDbPassword];
 dbConnectionString = StorageConfig.getDatabaseConnectionString(dbConnectionString, database, dbUser, dbPassword);
 
-// TODO Add database context & enable saving sensitive data in the log (not for production use!)
+// TODO Add database context & enable saving sensitive data in the log (not for production use!) -- DONE
 // For SQL Database, allow for db connection sometimes being lost
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(dbConnectionString);
+    options.EnableSensitiveDataLogging(true);
+});
 
 // Replacement for database error page
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// TODO add Identity service
-
+// TODO add Identity service -- DONE
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
+})
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 /*
  * Best practice is to have a single instance of a Cosmos client for an application.
  * Use dependency injection to inject this single instance into ImageStorage repository.
@@ -123,11 +137,23 @@ app.MapDefaultControllerRoute();
 //    pattern: "{controller=Home}/{action=Index}/{Id?}");
 
 /*
- * TODO Seed the database: We need to manually inject the dependencies of the initalizer.
+ * TODO Seed the database: We need to manually inject the dependencies of the initalizer. -- DONE
  * EF services are scoped to a request, so we must create a temporary scope for its injection.
  * More on dependency injection: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
  * More on DbContext lifetime: https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
  */
+
+using (var serviceScope = app.Services.CreateScope())
+{
+    var serviceProvider = serviceScope.ServiceProvider;
+
+    var db = serviceProvider.GetRequiredService<ApplicationDbContext>();
+    var imageStorage = serviceProvider.GetRequiredService<IImageStorage>();
+    var logContext = serviceProvider.GetRequiredService<ILogContext>();
+    var logger = serviceProvider.GetRequiredService<ILogger<ApplicationDbInitializer>>();
+
+    await new ApplicationDbInitializer(db, imageStorage, logContext, logger).SeedDatabase(serviceProvider);
+}
 
 /*
  * Finally, run the application!

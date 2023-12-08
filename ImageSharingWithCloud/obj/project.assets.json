@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Azure.Core/1.35.0": {
+      "Azure.Core/1.36.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
@@ -24,10 +24,10 @@
           }
         }
       },
-      "Azure.Data.Tables/12.8.1": {
+      "Azure.Data.Tables/12.8.2": {
         "type": "package",
         "dependencies": {
-          "Azure.Core": "1.34.0",
+          "Azure.Core": "1.36.0",
           "System.Text.Json": "4.7.2"
         },
         "compile": {
@@ -100,10 +100,10 @@
           }
         }
       },
-      "Azure.Storage.Blobs/12.18.0": {
+      "Azure.Storage.Blobs/12.19.1": {
         "type": "package",
         "dependencies": {
-          "Azure.Storage.Common": "12.17.0",
+          "Azure.Storage.Common": "12.18.1",
           "System.Text.Json": "4.7.2"
         },
         "compile": {
@@ -117,10 +117,10 @@
           }
         }
       },
-      "Azure.Storage.Common/12.17.0": {
+      "Azure.Storage.Common/12.18.1": {
         "type": "package",
         "dependencies": {
-          "Azure.Core": "1.35.0",
+          "Azure.Core": "1.36.0",
           "System.IO.Hashing": "6.0.0"
         },
         "compile": {
@@ -212,7 +212,7 @@
           }
         }
       },
-      "Microsoft.Azure.Cosmos/3.36.0": {
+      "Microsoft.Azure.Cosmos/3.37.0": {
         "type": "package",
         "dependencies": {
           "Azure.Core": "1.19.0",
@@ -2984,16 +2984,16 @@
     }
   },
   "libraries": {
-    "Azure.Core/1.35.0": {
-      "sha512": "hENcx03Jyuqv05F4RBEPbxz29UrM3Nbhnr6Wl6NQpoU9BCIbL3XLentrxDCTrH54NLS11Exxi/o8MYgT/cnKFA==",
+    "Azure.Core/1.36.0": {
+      "sha512": "vwqFZdHS4dzPlI7FFRkPx9ctA+aGGeRev3gnzG8lntWvKMmBhAmulABi1O9CEvS3/jzYt7yA+0pqVdxkpAd7dQ==",
       "type": "package",
-      "path": "azure.core/1.35.0",
+      "path": "azure.core/1.36.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.core.1.35.0.nupkg.sha512",
+        "azure.core.1.36.0.nupkg.sha512",
         "azure.core.nuspec",
         "azureicon.png",
         "lib/net461/Azure.Core.dll",
@@ -3010,16 +3010,16 @@
         "lib/netstandard2.0/Azure.Core.xml"
       ]
     },
-    "Azure.Data.Tables/12.8.1": {
-      "sha512": "UsJVAV2omsi6Ws5zqV2/TMP2GQjFlmjiFXnYKV5u5+9MQ588VDkvvlh4TGzLRAG2DxVx7rdgjtQ9baTlz/+log==",
+    "Azure.Data.Tables/12.8.2": {
+      "sha512": "Pb1HbhNvhYOWmsSHxRXElhkD5A2Gk7ifPjnUjN+U3lvGy2x4kSfjg1+KMax/16xBh49Cmlok3mS5qS39otkQlg==",
       "type": "package",
-      "path": "azure.data.tables/12.8.1",
+      "path": "azure.data.tables/12.8.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.data.tables.12.8.1.nupkg.sha512",
+        "azure.data.tables.12.8.2.nupkg.sha512",
         "azure.data.tables.nuspec",
         "azureicon.png",
         "lib/netstandard2.0/Azure.Data.Tables.dll",
@@ -3074,16 +3074,16 @@
         "pkgicon.png"
       ]
     },
-    "Azure.Storage.Blobs/12.18.0": {
-      "sha512": "IUqHRXnabXCzmmvkzqPK4FuGzLxmKSugDEt5Hm5B/JlJFR+aHDsPW4nCLbG0txThqBSKPqcBBU/oA6c5TaFJgA==",
+    "Azure.Storage.Blobs/12.19.1": {
+      "sha512": "x43hWFJ4sPQ23TD4piCwT+KlQpZT8pNDAzqj6yUCqh+WJ2qcQa17e1gh6ZOeT2QNFQTTDSuR56fm2bIV7i11/w==",
       "type": "package",
-      "path": "azure.storage.blobs/12.18.0",
+      "path": "azure.storage.blobs/12.19.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.storage.blobs.12.18.0.nupkg.sha512",
+        "azure.storage.blobs.12.19.1.nupkg.sha512",
         "azure.storage.blobs.nuspec",
         "azureicon.png",
         "lib/net6.0/Azure.Storage.Blobs.dll",
@@ -3094,16 +3094,16 @@
         "lib/netstandard2.1/Azure.Storage.Blobs.xml"
       ]
     },
-    "Azure.Storage.Common/12.17.0": {
-      "sha512": "/h8SpUkxMuQy/MbNFeJQGmhYt3JnYfEiGeDojtNgLNzzhyDnRYgjF3ZKYgjORYQpn0Spr+4+v2MZy+0GNJBLrg==",
+    "Azure.Storage.Common/12.18.1": {
+      "sha512": "ohCslqP9yDKIn+DVjBEOBuieB1QwsUCz+BwHYNaJ3lcIsTSiI4Evnq81HcKe8CqM8qvdModbipVQKpnxpbdWqA==",
       "type": "package",
-      "path": "azure.storage.common/12.17.0",
+      "path": "azure.storage.common/12.18.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "CHANGELOG.md",
         "README.md",
-        "azure.storage.common.12.17.0.nupkg.sha512",
+        "azure.storage.common.12.18.1.nupkg.sha512",
         "azure.storage.common.nuspec",
         "azureicon.png",
         "lib/net6.0/Azure.Storage.Common.dll",
@@ -3198,10 +3198,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.Azure.Cosmos/3.36.0": {
-      "sha512": "O8NYZ3JEVVp9xjj1VZ1gQzeJowspyt3n1wJKjt7fZRwVNDyeiBwe1F9oIBwdrsvigBfxLT3wvBZU1oU5vVlXPw==",
+    "Microsoft.Azure.Cosmos/3.37.0": {
+      "sha512": "NTNIGWBMVc/gwS2utRvSQ2pULeNC+BomgYh4sb5lQAVH/kkWUDcRgHwd3/YQE9xuo5U6jkEe1VHFME0szC1z3g==",
       "type": "package",
-      "path": "microsoft.azure.cosmos/3.36.0",
+      "path": "microsoft.azure.cosmos/3.37.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3214,7 +3214,7 @@
         "lib/netstandard2.0/Microsoft.Azure.Cosmos.Core.dll",
         "lib/netstandard2.0/Microsoft.Azure.Cosmos.Direct.dll",
         "lib/netstandard2.0/Microsoft.Azure.Cosmos.Serialization.HybridRow.dll",
-        "microsoft.azure.cosmos.3.36.0.nupkg.sha512",
+        "microsoft.azure.cosmos.3.37.0.nupkg.sha512",
         "microsoft.azure.cosmos.nuspec",
         "runtimes/win-x64/native/Cosmos.CRTCompat.dll",
         "runtimes/win-x64/native/Microsoft.Azure.Cosmos.ServiceInterop.dll",
@@ -8934,13 +8934,13 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Azure.Data.Tables >= 12.8.1",
+      "Azure.Data.Tables >= 12.8.2",
       "Azure.Extensions.AspNetCore.Configuration.Secrets >= 1.2.2",
       "Azure.Identity >= 1.10.3",
-      "Azure.Storage.Blobs >= 12.18.0",
+      "Azure.Storage.Blobs >= 12.19.1",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 7.0.13",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.13",
-      "Microsoft.Azure.Cosmos >= 3.36.0",
+      "Microsoft.Azure.Cosmos >= 3.37.0",
       "Microsoft.EntityFrameworkCore.Cosmos >= 7.0.13",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.13",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.13",
@@ -8949,24 +8949,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/dduggan/.nuget/packages/": {}
+    "/Users/adamboro/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
+      "projectUniqueName": "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
       "projectName": "ImageSharingWithCloud",
-      "projectPath": "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
-      "packagesPath": "/Users/dduggan/.nuget/packages/",
-      "outputPath": "/Users/dduggan/Documents/Teach/CS526/Classes/2023-Fall/Assignments/Assignment3-Cloud-Storage/Assignment3-Code/ImageSharingWithCloud/obj/",
+      "projectPath": "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/ImageSharingWithCloud.csproj",
+      "packagesPath": "/Users/adamboro/.nuget/packages/",
+      "outputPath": "/Users/adamboro/Desktop/hw3/ImageSharingWithCloud/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/dduggan/.nuget/NuGet/NuGet.Config"
+        "/Users/adamboro/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/sdk/7.0.311/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8987,7 +8988,7 @@
         "dependencies": {
           "Azure.Data.Tables": {
             "target": "Package",
-            "version": "[12.8.1, )"
+            "version": "[12.8.2, )"
           },
           "Azure.Extensions.AspNetCore.Configuration.Secrets": {
             "target": "Package",
@@ -8999,7 +9000,7 @@
           },
           "Azure.Storage.Blobs": {
             "target": "Package",
-            "version": "[12.18.0, )"
+            "version": "[12.19.1, )"
           },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
@@ -9011,7 +9012,7 @@
           },
           "Microsoft.Azure.Cosmos": {
             "target": "Package",
-            "version": "[3.36.0, )"
+            "version": "[3.37.0, )"
           },
           "Microsoft.EntityFrameworkCore.Cosmos": {
             "target": "Package",
@@ -9055,7 +9056,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -29,6 +29,8 @@
                 {
                     <text>
                         <!-- TODO add Edit and Delete links -->
+                        <a asp-controller="Images" asp-route-id="@image.Id" asp-action="Edit">Edit</a>
+                        <a asp-controller="Images" asp-route-id="@image.Id" asp-action="Delete">Delete</a>
                     </text>
                 }
             </td>

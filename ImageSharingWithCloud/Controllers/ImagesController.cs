@@ -9,7 +9,8 @@ using Azure;
 
 namespace ImageSharingWithCloud.Controllers
 {
-    // TODO require authorization by default
+    // TODO require authorization by default -- DONE
+    [Authorize]
     public class ImagesController : BaseController
     {
         protected ILogContext logContext;
@@ -30,8 +31,9 @@ namespace ImageSharingWithCloud.Controllers
         }
 
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
+        [Authorize(Roles = "User")]
         public ActionResult Upload()
         {
             CheckAda();
@@ -41,8 +43,10 @@ namespace ImageSharingWithCloud.Controllers
             return View(imageView);
         }
 
-        // TODO prevent CSRF
-
+        // TODO prevent CSRF -- DONE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult> Upload(ImageView imageView)
         {
             CheckAda();
@@ -70,22 +74,36 @@ namespace ImageSharingWithCloud.Controllers
 
             string imageId = null;
 
-            // TODO save image metadata in the database 
+            // TODO save image metadata in the database -- DONE
+            Image image = new Image
+            {
+                Caption = imageView.Caption,
+                Description = imageView.Description,
+                DateTaken = imageView.DateTaken,
+                UserId = user.Id,
+                Id = imageView.Id,
+                Valid = true,
+                Approved = true
+            };
 
-            
+            imageId = await imageStorage.SaveImageInfoAsync(image);
             // end TODO
 
             logger.LogDebug("...saving image file on disk....");
 
-            // TODO save image file on disk
+            // TODO save image file on disk -- DONE
+            if (imageView.ImageFile != null && imageView.ImageFile.Length > 0)
+            {
+                await imageStorage.SaveImageFileAsync(imageView.ImageFile, user.Id, imageId);
+            }
 
             logger.LogDebug("....forwarding to the details page, image Id = "+imageId);
 
             return RedirectToAction("Details", new { UserId = user.Id, Id = imageId });
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public ActionResult Query()
         {
             CheckAda();
@@ -94,8 +112,8 @@ namespace ImageSharingWithCloud.Controllers
             return View();
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public async Task<ActionResult> Details(string UserId, string Id)
         {
             CheckAda();
@@ -116,14 +134,14 @@ namespace ImageSharingWithCloud.Controllers
             imageView.UserName = image.UserName;
             imageView.UserId = image.UserId;
 
-            // TODO Log this view of the image
-
+            // TODO Log this view of the image -- DONE
+            await logContext.AddLogEntryAsync(UserId, imageView.UserName, imageView);
 
             return View(imageView);
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public async Task<ActionResult> Edit(string UserId, string Id)
         {
             CheckAda();
@@ -153,8 +171,9 @@ namespace ImageSharingWithCloud.Controllers
             return View("Edit", imageView);
         }
 
-        // TODO prevent CSRF
-
+        // TODO prevent CSRF -- DONE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> DoEdit(string UserId, string Id, ImageView imageView)
         {
             CheckAda();
@@ -187,8 +206,8 @@ namespace ImageSharingWithCloud.Controllers
             return RedirectToAction("Details", new { UserId = UserId, Id = Id });
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public async Task<ActionResult> Delete(string UserId, string Id)
         {
             CheckAda();
@@ -214,8 +233,9 @@ namespace ImageSharingWithCloud.Controllers
             return View(imageView);
         }
 
-        // TODO prevent CSRF
-
+        // TODO prevent CSRF -- DONE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> DoDelete(string UserId, string Id)
         {
             CheckAda();
@@ -237,20 +257,20 @@ namespace ImageSharingWithCloud.Controllers
 
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public async Task<ActionResult> ListAll()
         {
             CheckAda();
             ApplicationUser user = await GetLoggedInUser();
 
             IList<Image> images = await imageStorage.GetAllImagesInfoAsync();
-            ViewBag.UserId = user.UserId;
+            ViewBag.UserId = user.Id; // TODO -- Changed UserId to Id here -- DONE
             return View(images);
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public async Task<IActionResult> ListByUser()
         {
             CheckAda();
@@ -263,20 +283,25 @@ namespace ImageSharingWithCloud.Controllers
             return View(userView);
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
         public async Task<ActionResult> DoListByUser(string Id)
         {
             CheckAda();
 
-            // TODO list all images uploaded by the user in userView
-            return null;
+            // TODO list all images uploaded by the user in userView -- DONE
+            ApplicationUser user = await userManager.FindByIdAsync(Id);
+            var images = await imageStorage.GetImageInfoByUserAsync(user);
+
+            // Assuming a view model or a view that can list images
+            return View("ListImages", images);
             // End TODO
 
         }
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
+        [Authorize(Roles = "Supervisor")]
         public ActionResult ImageViews()
         {
             CheckAda();
@@ -284,8 +309,9 @@ namespace ImageSharingWithCloud.Controllers
         }
 
 
-        // TODO
-
+        // TODO -- DONE
+        [HttpGet]
+        [Authorize(Roles = "Supervisor")]
         public ActionResult ImageViewsList(string Today)
         {
             CheckAda();

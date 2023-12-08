@@ -11,7 +11,8 @@ using Microsoft.Extensions.Logging;
 
 namespace ImageSharingWithCloud.Controllers
 {
-    // TODO require authorization
+    // TODO require authorization -- DONE
+    [Authorize]
     public class AccountController : BaseController
     {
         protected SignInManager<ApplicationUser> signInManager;
@@ -30,16 +31,19 @@ namespace ImageSharingWithCloud.Controllers
             this.logger = logger;
         }
 
-        // TODO allow anonymous
-
+        // TODO allow anonymous -- DONE
+        [HttpGet]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             CheckAda();
             return View();
         }
 
-        // TODO allow anonymous, prevent CSRF
-
+        // TODO allow anonymous, prevent CSRF -- DONE
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<ActionResult> Register(RegisterModel model)
         {
             CheckAda();
@@ -72,7 +76,8 @@ namespace ImageSharingWithCloud.Controllers
         }
 
         // TODO allow anonymous
-
+        [AllowAnonymous]
+        [HttpGet]
         public IActionResult Login(string returnUrl)
         {
             CheckAda();
@@ -81,7 +86,9 @@ namespace ImageSharingWithCloud.Controllers
         }
 
         // TODO allow anonymous, prevent CSRF
-
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Login(LoginModel model, string returnUrl)
         {
             CheckAda();
@@ -95,13 +102,13 @@ namespace ImageSharingWithCloud.Controllers
              * Log in the user from the model (make sure they are still active)
              */
 
-            ApplicationUser User = null;
-            // TODO Use UserManager to obtain the user record from the database.
+            // TODO Use UserManager to obtain the user record from the database. -- DONE
+            ApplicationUser User = await userManager.FindByNameAsync(model.UserName);
 
             if (User != null && User.Active)
             {
-                SignInResult result = null;
-                // TODO Use SignInManager to log in the user.
+                // TODO Use SignInManager to log in the user. -- DONE
+                SignInResult result = await signInManager.PasswordSignInAsync(User, model.Password, model.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
@@ -122,7 +129,8 @@ namespace ImageSharingWithCloud.Controllers
             return View(model);
         }
 
-        // TODO
+        // TODO -- DONE
+        [HttpGet]
         public ActionResult Password(PasswordMessageId? message)
         {
             CheckAda();
@@ -135,8 +143,9 @@ namespace ImageSharingWithCloud.Controllers
             return View();
         }
 
-        // TODO prevent CSRF
-
+        // TODO prevent CSRF -- DONE
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<ActionResult> Password(LocalPasswordModel model)
         {
             CheckAda();
@@ -167,8 +176,9 @@ namespace ImageSharingWithCloud.Controllers
             return View(model);
         }
 
-        // TODO require Admin permission
-
+        // TODO require Admin permission -- DONE
+        [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public IActionResult Manage()
         {
             CheckAda();
@@ -185,8 +195,10 @@ namespace ImageSharingWithCloud.Controllers
             return View(model);
         }
 
-        // TODO require Admin permission, prevent CSRF
-
+        // TODO require Admin permission, prevent CSRF -- DONE
+        [Authorize(Roles = "Administrator")]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Manage(ManageModel model)
         {
             CheckAda();
@@ -220,7 +232,8 @@ namespace ImageSharingWithCloud.Controllers
             return View(model);
         }
 
-        // TODO
+        // TODO -- DONE
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             CheckAda();
@@ -229,7 +242,9 @@ namespace ImageSharingWithCloud.Controllers
             return View(new LogoutModel { UserName = user.UserName });
         }
 
-        // TODO
+        // TODO -- DONE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DoLogout()
         {
             CheckAda();
@@ -238,7 +253,9 @@ namespace ImageSharingWithCloud.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // TODO
+        // TODO -- DONE
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult AccessDenied(string returnUrl)
         {
             CheckAda();
